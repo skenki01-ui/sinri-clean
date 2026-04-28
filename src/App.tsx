@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
-import Tokushoho from "./pages/Tokushoho";
+import Tokushoho from "./pages/";
 
 function Home() {
   return (
