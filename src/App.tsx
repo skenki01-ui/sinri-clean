@@ -1,18 +1,29 @@
-export default function App() {
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Tokushoho from "./pages/Tokushoho";
+import Contact from "./pages/Contact";
+
+function Home() {
   return (
     <div style={{ padding: 20, fontFamily: "sans-serif" }}>
       <h1>オンライン相談サービス</h1>
 
       <p>
         当サービスは、日常の悩みや疑問について
-        テキストベースで相談できるサービスです。
+        テキストベースで相談できるオンラインサービスです。
+        AIまたはサポート対応により、ユーザーの相談に応じた回答を提供します。
       </p>
 
       <h3>料金</h3>
       <p>・1回相談：500円</p>
       <p>・月額プラン：1500円</p>
 
-      <button style={{ marginTop: 20, padding: "10px 20px" }}>
+      <button
+        style={{ marginTop: 20, padding: "10px 20px" }}
+        onClick={() => alert("準備中です")}
+      >
         相談を開始する
       </button>
 
@@ -23,15 +34,32 @@ export default function App() {
       </p>
 
       <div style={{ fontSize: 12 }}>
-        <p>運営者：個人開発</p>
-        <p>メール：example@gmail.com</p>
+        <p>運営者：角谷 勝徳</p>
+        <p>メール：kunanahachi@gmail.com</p>
+        <p>電話番号：080-5127-7084</p>
+        <p>所在地：大阪府住之江区御崎8丁目2-28</p>
       </div>
 
       <div style={{ marginTop: 20 }}>
-        <a href="/terms">利用規約</a> /{" "}
-        <a href="/privacy">プライバシーポリシー</a> /{" "}
-     
+        <Link to="/terms">利用規約</Link> /{" "}
+        <Link to="/privacy">プライバシーポリシー</Link> /{" "}
+        <Link to="/tokushoho">特定商取引法</Link> /{" "}
+        <Link to="/contact">お問い合わせ</Link>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/tokushoho" element={<Tokushoho />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
